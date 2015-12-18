@@ -1,8 +1,4 @@
 
-
-[![Build Status](https://travis-ci.org/selaias/accounts-entry.png)](https://travis-ci.org/selaias/accounts-entry)
-
-
 # accounts-entry
 
 **NOTE:** This is forked from [https://github.com/Differential/accounts-entry] (https://github.com/Differential/accounts-entry) eliminated coffeescript, simpleForm and t9n (replaced by [anti:i18n] (https://github.com/anticoders/meteor-i18n))
@@ -22,12 +18,12 @@ Run:
 
 For Meteor 1.2.0.1 version
 ```
-meteor add selaias:accounts-entry
+meteor add cypher:accounts-entry
 ```
 
 For 1.1.0.3 and below 
 ```
-meteor add selaias:accounts-entry@=0.5.0
+meteor add cypher:accounts-entry@=0.5.0
 ```
 You can install the `accounts-ui` package, as it is still used for OAuth setup.
 
