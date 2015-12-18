@@ -29,10 +29,12 @@ AccountsEntry = {
   config: function(appConfig) {
     var signUpRoute;
     this.settings = _.extend(this.settings, appConfig);
-    i18n.setDefaultLanguage = "en";
+    i18n.setDefaultLanguage = "es";
     if (appConfig.language) {
-      i18n.setLanguage = appConfig.language;
+      i18n.setLanguage = "es"; // appConfig.language;
     }
+    i18n.setLanguage = "es"; // appConfig.language;
+    console.log(i18n);
     if (appConfig.signUpTemplate) {
       signUpRoute = Router.routes['entrySignUp'];
       return signUpRoute.options.template || appConfig.signUpTemplate;

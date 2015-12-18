@@ -1,47 +1,46 @@
 <template name='entrySignIn'>
   <div class="container">
     <div class="row">
-      {{#if logo}}
-        <div class="entry-logo col s12 m6 offset-m3 l6 offset-l3">
-            <a href="/"><img src="{{logo}}" alt="logo"></a>
-        </div>
-      {{/if}}
-      <div class="entry col s12 m6 offset-m3 l6 offset-l3 ">
-        {{#if otherLoginServices}}
-        <div class="entry-social">
-          {{#each loginServices}}
-            {{> entrySocial}}
-          {{/each}}
+      <div class="col s12 m6 offset-m3 l6 offset-l3 ">
+        <div class="card hoverable">
+          {{#if otherLoginServices}}
+            {{#each loginServices}}
+              {{> entrySocial}}
+            {{/each}}
+            {{#if passwordLoginService}}
+            <div class="email-option">
+              <strong class="line-thru or-sign-in">{{i18n "OR"}}</strong>
+            </div>
+            {{/if}}
+          {{/if}}
+          {{> alerts}}
+          {{#unless otherLoginServices}}
+            <div class="card-content">
+              <h5>{{i18n "signIn"}}</h5>
+            </div>
+          {{/unless}}
           {{#if passwordLoginService}}
-          <div class="email-option">
-            <strong class="line-thru or-sign-in">{{i18n "OR"}}</strong>
-          </div>
+            <div class="card-action grey-text text-darken-2">
+              <form class="entry-form" id='signIn'>
+                <div class="form-group">
+                  <label>{{i18n "email"}}</label>
+                  <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="">
+                </div>
+                <div class="form-group">
+                  <label>{{i18n "password"}}</label>
+                  <input name="password" type="password" class="form-control" value='{{password}}' placeholder="">
+                </div>
+                {{#unless isUsernameOnly}}
+                  <h6><a href="{{pathFor 'entryForgotPassword'}}">{{i18n "forgotPassword"}}</a></h6>
+                  <button type="submit" class="submit btn-large indigo lighten-1 waves-effect waves-light">{{i18n "signIn"}}</button>
+                {{/unless}}
+              </form>
+            </div>
+          {{/if}}
+          {{#if showCreateAccountLink}}
+          <p class="entry-signup-cta">{{i18n "dontHaveAnAccount"}} <a href="{{pathFor 'entrySignUp'}}">{{i18n "signUp"}}</a></p>
           {{/if}}
         </div>
-        {{/if}}
-        {{> alerts}}
-        {{#unless otherLoginServices}}
-          <div class="email-option">
-            <h3>{{i18n "signIn"}}</h3>
-          </div>
-        {{/unless}}
-        {{#if passwordLoginService}}
-          <form class="entry-form" id='signIn'>
-            <div class="form-group">
-              <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
-            </div>
-            <div class="form-group">
-              <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{i18n 'password'}}">
-            </div>
-            {{#unless isUsernameOnly}}
-              <p><a href="{{pathFor 'entryForgotPassword'}}">{{i18n "forgotPassword"}}</a></p>
-              <button type="submit" class="submit btn btn-block btn-default">{{i18n "signIn"}}</button>
-            {{/unless}}
-          </form>
-        {{/if}}
-        {{#if showCreateAccountLink}}
-        <p class="entry-signup-cta">{{i18n "dontHaveAnAccount"}} <a href="{{pathFor 'entrySignUp'}}">{{i18n "signUp"}}</a></p>
-        {{/if}}
       </div>
     </div>
   </div>
