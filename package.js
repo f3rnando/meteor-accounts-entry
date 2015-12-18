@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Make signin and signout their own pages with routes (in javascript) with materialize CSS classes",
-  version: '0.8.3',
+  version: '0.8.4',
   name: "cypher:accounts-entry",
   git: 'https://github.com/f3rnando/meteor-accounts-entry.git',
 });
